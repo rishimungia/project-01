@@ -1,0 +1,290 @@
+:root {
+    --accent: #0468BF;
+    --light: #F5F5F7;
+    --dark: #1F2426;
+
+    color: #0F0F0F;
+}
+
+section {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--light);
+}
+
+.intro-section {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    padding-left: 4rem;
+    position: relative;
+    
+    h1 {
+        font-size: min(4rem, 10vw);
+        line-height: 4rem;
+        animation: fade-in-left 0.5s ease;
+    }
+    h2 {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+        animation: fade-in-left 0.5s ease;
+    }
+
+    .button {
+        width: 12rem;
+        height: 3rem;
+        margin-top: 2rem;
+        border-radius: 100px;
+        cursor: pointer;
+        background: var(--accent);
+        box-shadow: 0px 0px 15px 0px var(--accent);
+        color: var(--light);
+        font-weight: 600;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.2s ease;
+        animation: button 0.5s 0.5s ease forwards;
+        opacity: 0;
+    }
+    .button:hover, .button:focus {
+        background: rgba($color: #0468BF, $alpha: 0.9);
+        box-shadow: 0px 0px 20px 2px var(--accent);
+    }
+
+    .custom-shape-divider-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+    .custom-shape-divider-top svg {
+        position: relative;
+        display: block;
+        width: calc(125% + 1.3px);
+        height: 145px;
+    }
+    .custom-shape-divider-top .shape-fill {
+        fill: var(--dark);
+    }
+
+    .custom-shape-divider-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+    
+    .custom-shape-divider-bottom svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 145px;
+    }
+    
+    .custom-shape-divider-bottom .shape-fill {
+        fill: var(--dark);
+    }
+    
+    /** For mobile devices **/
+    @media (max-width: 767px) {
+        .custom-shape-divider-top svg {
+            width: calc(125% + 1.3px);
+            height: 100px;
+        }
+
+        .custom-shape-divider-bottom svg {
+            width: calc(100% + 1.3px);
+            height: 100px;
+        }
+    }
+}
+
+@keyframes fade-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-2rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes button {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.services-section {
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 4rem;
+    gap: 4rem;
+
+    h1 {
+        color: var(--light);
+        font-size: min(5rem, 12vw);
+        font-weight: 400;
+    }
+}
+
+.contact-section {
+    position: relative;
+    padding: 4rem 4rem;
+
+    h1 {
+        font-size: min(5rem, 12vw);
+        font-weight: 400;
+    }
+
+    .custom-shape-divider-top-2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+    
+    .custom-shape-divider-top-2 svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 120px;
+    }
+    
+    .custom-shape-divider-top-2 .shape-fill {
+        fill: var(--dark);
+    }
+    
+    /** For mobile devices **/
+    @media (max-width: 767px) {
+        .custom-shape-divider-top-2 svg {
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+    }
+}
+
+footer {
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    
+    .footer-content {
+        height: 100%;
+        position: relative;
+        width: min(65rem, 100vw);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        hr {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            opacity: 0.25;
+        }
+        p {
+            font-size: 0.9rem;
+            padding-inline: min(4rem, 10vw);
+            opacity: 0.7;
+
+            a {
+                text-decoration: none;
+                color: var(--accent);
+            }
+        }
+    }
+}
+
+/* Components CSS */
+
+/* Cards Component */
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    
+    .project-card {
+        width: 18rem;
+        aspect-ratio: 0.7;
+        padding: 1.5rem;
+        background: var(--light);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+        overflow: hidden;
+
+        .image {
+            width: 100%;
+            aspect-ratio: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            // background-position: center;
+        }
+        
+        header {
+            font-size: 2rem;
+        }
+
+        .project-description {
+            position: absolute;
+            text-align: justify;
+            color: var(--light);
+            width: 100%;
+            padding: 1.5rem;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, 100%);
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 2;
+        }
+    }
+
+    .project-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--accent);
+        transform: translateY(100%);
+        transition: transform 0.5s ease;
+    }
+
+    .project-card:hover::after {
+        transform: translateY(0);
+    }
+    .project-card:hover {
+        .project-description {
+            transform: translate(-50%, 0);
+            opacity: 1;
+        }
+    }
+}
