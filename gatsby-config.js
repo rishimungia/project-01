@@ -4,5 +4,6 @@ module.exports = {
     },
     plugins: [
         "gatsby-plugin-sass"
-    ]
+    ],
+    pathPrefix: "/project-01",
 }
